@@ -1,0 +1,22 @@
+/* Design tokens: colori, raggi, ombre, font, temi (chiaro/scuro/alto contrasto) */
+:root{
+  --bg:#F5EFE4; --surface:#FFFDF8; --surface2:#EFE6D6; --ink:#211B16; --ink2:#4A3F35; --muted:#7A6C5D; --line:#E6DAC7;
+  --brand:#B4492A; --brand-d:#8E3519; --brand-ink:#fff; --brand-soft:#F7E3D5;
+  --night:#1F2A36; --night-ink:#F6EDDD; --gold:#C8993F; --olive:#5E6E3B; --olive-soft:#E6EAD2;
+  --low:#4C8A3A; --mid:#C98A14; --high:#BF3A2B;
+  --r:22px; --r-s:14px; --fs:16px;
+  --sh1:0 1px 2px rgba(60,38,18,.06),0 2px 8px rgba(60,38,18,.05);
+  --sh2:0 2px 4px rgba(60,38,18,.06),0 14px 34px rgba(60,38,18,.12);
+  --display:"Fraunces",Georgia,"Iowan Old Style",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --hdr:60px; --nav:72px;
+}
+:root[data-theme="dark"]{
+  --bg:#16120E; --surface:#201A15; --surface2:#2A231C; --ink:#F4EBDC; --ink2:#D5C7B3; --muted:#A39382; --line:#3A3027;
+  --brand:#E37B52; --brand-d:#F29A78; --brand-ink:#1A120D; --brand-soft:#3A241A; --night:#0F151C; --olive:#B3C186; --olive-soft:#2A301B;
+  --low:#79B864; --mid:#E2AB3A; --high:#EC6A5B; --sh1:0 1px 2px #0006; --sh2:0 14px 34px #0008;
+}
+:root.hc{--bg:#fff;--surface:#fff;--surface2:#f2f2f2;--ink:#000;--ink2:#000;--muted:#222;--line:#000;--brand:#8A2D00;--brand-soft:#FFE9D9;--low:#14610C;--mid:#7A5000;--high:#A00000}
+:root.hc[data-theme="dark"]{--bg:#000;--surface:#000;--surface2:#111;--ink:#fff;--ink2:#fff;--muted:#eee;--line:#fff;--brand:#FFB36B;--brand-ink:#000}
+:root.lg{--fs:18px}:root.xl{--fs:20.5px}
+.nomotion *{animation:none!important;transition:none!important;scroll-behavior:auto!important}

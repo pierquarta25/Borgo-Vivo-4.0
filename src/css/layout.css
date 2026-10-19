@@ -1,0 +1,33 @@
+/* Struttura: header, barra di navigazione, contenitore principale, titoli di pagina */
+/* ───── header ───── */
+.top{position:sticky;top:0;z-index:40;height:var(--hdr);display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 16px;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink)}
+.brand .mark{width:34px;height:34px;display:block;flex:none}.brand .mark svg{display:block}
+.brand b{white-space:nowrap;font-family:var(--display);font-size:1.12rem;font-weight:650;letter-spacing:-.02em}
+.brand b em{font-style:normal;color:var(--brand)}
+.top-r{display:flex;gap:8px;align-items:center}
+.destpick{position:relative}
+.destpick select{appearance:none;-webkit-appearance:none;background:var(--surface);border:1px solid var(--line);border-radius:999px;height:40px;padding:0 30px 0 32px;font-weight:600;box-shadow:var(--sh1);max-width:150px;text-overflow:ellipsis}
+.destpick .ic{position:absolute;top:10px;pointer-events:none}.destpick .ic:first-of-type{left:11px;color:var(--brand)}.destpick .ic:last-of-type{right:10px;color:var(--muted);transform:rotate(90deg)}
+.round{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;box-shadow:var(--sh1)}
+
+/* ───── nav ───── */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;height:calc(var(--nav) + env(safe-area-inset-bottom));padding:8px 8px calc(8px + env(safe-area-inset-bottom));display:flex;gap:2px;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-top:1px solid var(--line)}
+.tabs a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;color:var(--muted);font-size:.66rem;font-weight:600;border-radius:16px;transition:.18s}
+.tabs a .ic{transition:.18s}
+.tabs a[aria-current="page"]{color:var(--brand);background:var(--brand-soft)}
+.tabs a[aria-current="page"] .ic{transform:translateY(-1px)}
+.tabs a.plan .ic-wrap{width:44px;height:44px;margin-top:-18px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;box-shadow:0 6px 16px rgba(180,73,42,.45);border:3px solid var(--surface)}
+.tabs a.plan[aria-current="page"]{background:transparent}
+
+main{max-width:1040px;margin:0 auto;padding:18px 16px 28px;outline:none;animation:fade .35s ease both}
+main.bleed{padding:0;max-width:none}
+@keyframes fade{from{transform:translateY(8px)}to{transform:none}}
+
+/* ───── tipografia pagina ───── */
+.ph{padding:6px 0 18px}
+.ph h1{font-size:2rem;margin-bottom:6px}
+.ph p{color:var(--ink2);max-width:36em;margin:0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;margin:30px 0 12px;gap:10px}
+.sec-h h2{font-size:1.38rem}.sec-h a,.sec-h button{font-size:.82rem;font-weight:600;color:var(--brand);text-decoration:none;background:none;border:0;padding:4px 0}
+.sec-sub{margin:-6px 0 12px;color:var(--muted);font-size:.84rem}

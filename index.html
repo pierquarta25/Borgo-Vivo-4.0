@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#B4492A">
+<title>Borgo Vivo 4.0</title>
+<meta name="description" content="Borgo Vivo 4.0 — dove il tempo ha un altro ritmo. Turismo intelligente e sostenibile per Matera e Gravina in Puglia.">
+<link rel="icon" type="image/svg+xml" href="assets/images/logo/bv-mark.svg">
+<link rel="apple-touch-icon" href="assets/images/logo/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="src/css/tokens.css">
+<link rel="stylesheet" href="src/css/base.css">
+<link rel="stylesheet" href="src/css/layout.css">
+<link rel="stylesheet" href="src/css/components.css">
+<link rel="stylesheet" href="src/css/views/home.css">
+<link rel="stylesheet" href="src/css/views/planner.css">
+<link rel="stylesheet" href="src/css/views/map.css">
+<link rel="stylesheet" href="src/css/views/content.css">
+<link rel="stylesheet" href="src/css/views/onboarding.css">
+<link rel="stylesheet" href="src/css/responsive.css">
+</head>
+<body>
+<a class="skip" href="#view">Vai al contenuto</a>
+
+<header class="top" role="banner">
+  <a class="brand" href="#/home" aria-label="Borgo Vivo 4.0 — Home">
+    <span class="mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" width="34" height="34"><rect width="64" height="64" rx="15" fill="#B4492A"/><path d="M13 55V30a19 19 0 0 1 38 0v25z" fill="#FFF3E0"/><clipPath id="hdrc"><path d="M19 55V31a13 13 0 0 1 26 0v24z"/></clipPath><g clip-path="url(#hdrc)"><rect x="19" y="14" width="26" height="41" fill="#1F2A36"/><circle cx="32" cy="39" r="9.500" fill="#F2C46E"/><path d="M17 46q7.500-4 15 0t15 0v10H17z" fill="#D9915A"/><path d="M17 51q7.500-3.500 15 0t15 0v5H17z" fill="#B4492A"/></g></svg></span>
+    <b>Borgo Vivo <em>4.0</em></b>
+  </a>
+  <div class="top-r" id="topR"></div>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="Sezioni principali"></nav>
+<main id="view" tabindex="-1" aria-live="polite"></main>
+
+<div id="sheet" class="sheet" hidden>
+  <div class="sheet-bg" data-action="closeSheet"></div>
+  <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <button class="sheet-x" data-action="closeSheet" aria-label="Chiudi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div id="sheetBody"></div>
+  </div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<div id="onb" class="onb" hidden></div>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="src/js/ui/icons.js"></script>
+<script src="src/js/ui/art.js"></script>
+<script src="src/js/data/destinations.js"></script>
+<script src="src/js/data/places.js"></script>
+<script src="src/js/data/services.js"></script>
+<script src="src/js/data/operators.js"></script>
+<script src="src/js/data/stories.js"></script>
+<script src="src/js/data/events.js"></script>
+<script src="src/js/data/data-sources.js"></script>
+<script src="src/js/data/photos.js"></script>
+<script src="src/js/engine/engine.js"></script>
+<script src="src/js/core/state.js"></script>
+<script src="src/js/ui/helpers.js"></script>
+<script src="src/js/views/home.js"></script>
+<script src="src/js/views/planner.js"></script>
+<script src="src/js/views/map.js"></script>
+<script src="src/js/views/stories.js"></script>
+<script src="src/js/views/market.js"></script>
+<script src="src/js/views/mobility.js"></script>
+<script src="src/js/views/access.js"></script>
+<script src="src/js/views/sources.js"></script>
+<script src="src/js/views/about.js"></script>
+<script src="src/js/components/sheets.js"></script>
+<script src="src/js/components/onboarding.js"></script>
+<script src="src/js/core/router.js"></script>
+<script src="src/js/core/actions.js"></script>
+<script src="src/js/core/events.js"></script>
+<script src="src/js/main.js"></script>
+</body>
+</html>

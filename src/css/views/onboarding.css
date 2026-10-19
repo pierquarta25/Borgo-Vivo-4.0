@@ -1,0 +1,13 @@
+/* Introduzione al primo avvio */
+/* ───── onboarding ───── */
+.onb{position:fixed;inset:0;z-index:300;background:var(--bg);display:flex;flex-direction:column;overflow:auto}
+.onb .ho{position:relative;height:44vh;min-height:280px;flex:none;border-radius:0 0 40px 40px;overflow:hidden;color:#FFF8EC}
+.onb .ho .art{position:absolute;inset:0;height:100%}
+.onb .ho:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,8,3,.05),rgba(15,8,3,.6))}
+.onb .ho .in{position:absolute;left:24px;bottom:24px;z-index:2;right:24px}
+.onb .ho h1{font-size:2.6rem}
+.onb .bd{padding:22px 22px 30px;max-width:520px;width:100%;margin:0 auto;flex:1}
+.dots{display:flex;gap:6px;margin:0 0 18px}.dots i{width:22px;height:5px;border-radius:9px;background:var(--line)}.dots i.on{background:var(--brand);width:34px}
+.dcard{display:flex;gap:14px;align-items:center;width:100%;text-align:left;border:2px solid var(--line);background:var(--surface);border-radius:22px;padding:8px;margin-bottom:10px}
+.dcard .th{width:76px;height:64px;border-radius:15px;overflow:hidden;flex:none}
+.dcard[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-soft)}

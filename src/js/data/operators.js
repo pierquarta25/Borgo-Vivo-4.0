@@ -1,0 +1,27 @@
+/* Operatori del marketplace (DIMOSTRATIVI — nomi di fantasia) */
+const OPERATORS = [
+  { id: 'o1', dest: 'matera', type: 'esperienza', name: 'Il pane di Matera: laboratorio con lievito madre', op: 'Forno Casa Murgia', icon: '🍞', price: 35, dur: 120, slots: ['10:00', '16:00'], days: [0,1,2,3,4,5,6], max: 8, access: 'full', ll: [40.6650, 16.6040],
+    desc: 'Si impastano e si cuociono forme tradizionali del Pane di Matera IGP, con grani locali e lievito madre. Degustazione finale con prodotti caseari.' },
+  { id: 'o2', dest: 'matera', type: 'artigiano', name: 'Laboratorio di cartapesta', op: 'Bottega del Carro', icon: '🎭', price: 30, dur: 90, slots: ['11:00', '17:00'], days: [1,2,3,4,5,6], max: 6, access: 'full', ll: [40.6656, 16.6068],
+    desc: 'Si lavora la cartapesta come per i carri della Festa della Bruna: si porta a casa la propria piccola opera.' },
+  { id: 'o3', dest: 'matera', type: 'guida', name: 'Matera prima dei Sassi: trekking alla Murgia Timone', op: 'Guida Parco Murgia', icon: '🥾', price: 25, dur: 180, slots: ['09:00'], days: [0,2,4,5,6], max: 10, access: 'none', ll: [40.6598, 16.6268],
+    desc: 'Dal Centro Visite al villaggio neolitico, alla cisterna, a San Falcione e al belvedere. Scarpe da camminata.' },
+  { id: 'o4', dest: 'matera', type: 'guida', name: 'La Matera del Novecento: dai Sassi ai nuovi quartieri', op: 'Atlante Urbano Guide', icon: '🏘️', price: 18, dur: 210, slots: ['09:30'], days: [1,3,5,6], max: 12, access: 'full', ll: [40.6697, 16.5958],
+    desc: 'Lanera, Serra Venerdì e il borgo La Martella con una guida: sfollamento, progetti urbanistici e memoria degli abitanti.' },
+  { id: 'o5', dest: 'matera', type: 'guida', name: 'I Sassi al tramonto', op: 'Guide Sassi Viva', icon: '🌇', price: 20, dur: 120, slots: ['17:30'], days: [0,3,5,6], max: 14, access: 'partial', ll: [40.6652, 16.6123],
+    desc: 'Passeggiata guidata tra Sasso Caveoso e Barisano, con racconti di vita quotidiana e belvedere nelle ore meno affollate.' },
+  { id: 'o6', dest: 'matera', type: 'guida', name: 'Sassi senza barriere: percorso per carrozzine', op: 'Matera Per Tutti', icon: '♿', price: 15, dur: 120, slots: ['10:00', '15:30'], days: [1,2,3,4,5,6], max: 6, access: 'full', ll: [40.6668, 16.6049],
+    desc: 'Percorso selezionato sui tratti accessibili, con soste panoramiche e racconti. Prenotabile anche per accompagnatori.' },
+  { id: 'o7', dest: 'matera', type: 'produttore', name: 'Degustazione di peperoni cruschi e caseari', op: 'Azienda Agricola Gravina Alta', icon: '🌶️', price: 22, dur: 75, slots: ['12:30'], days: [0,1,2,3,4,5,6], max: 10, access: 'full', ll: [40.6641, 16.6085],
+    desc: 'Peperoni cruschi, crapiata, cialledda e formaggi del territorio, raccontati da chi li produce.' },
+  { id: 'o8', dest: 'matera', type: 'guida', name: 'Cripta del Peccato Originale con guida', op: 'Guide Rupestri', icon: '🎨', price: 15, dur: 150, slots: ['09:30', '15:30'], days: [0,2,3,4,5,6], max: 8, access: 'none', ll: [40.7011, 16.5393],
+    desc: 'Accompagnamento alla cripta con prenotazione dell’ingresso inclusa. Trasporto non incluso.' },
+  { id: 'o9', dest: 'gravina', type: 'artigiano', name: 'Fischietti in terracotta: laboratorio', op: 'Bottega Terra e Fiato', icon: '🎵', price: 20, dur: 90, slots: ['10:30', '17:00'], days: [1,2,3,4,5,6], max: 8, access: 'partial', ll: [40.8192, 16.4171],
+    desc: 'Si modella e si decora un fischietto tradizionale di terracotta, simbolo della cultura popolare gravinese.' },
+  { id: 'o10', dest: 'gravina', type: 'produttore', name: 'Pallone di Gravina e vino Gravina DOC', op: 'Caseificio e Cantina dell’Alta Murgia', icon: '🧀', price: 28, dur: 90, slots: ['12:00', '18:00'], days: [0,1,2,3,4,5,6], max: 12, access: 'full', ll: [40.8203, 16.4186],
+    desc: 'Degustazione guidata di formaggio Pallone di Gravina, pane tradizionale e vino Gravina DOC.' },
+  { id: 'o11', dest: 'gravina', type: 'guida', name: 'Gravina, città d’acqua e di pietra', op: 'Guide Alta Murgia', icon: '🧭', price: 18, dur: 180, slots: ['09:30', '15:00'], days: [0,2,3,4,5,6], max: 14, access: 'partial', ll: [40.8184, 16.4175],
+    desc: 'Cattedrale, Rione Piaggio, Via Calderoni e Ponte Acquedotto: il percorso classico con un racconto che intreccia storia, fede e paesaggio.' },
+  { id: 'o12', dest: 'gravina', type: 'esperienza', name: 'Trekking nella gravina con guida', op: 'Murgia Outdoor', icon: '🥾', price: 22, dur: 150, slots: ['09:00'], days: [0,6], max: 10, access: 'none', ll: [40.8140, 16.4120],
+    desc: 'Escursione autorizzata lungo il canyon, con osservazione di cavità, chiese rupestri e flora. Prenotazione consigliata con anticipo.' }
+];

@@ -1,0 +1,29 @@
+/* Desktop (≥900px): barra laterale e layout a due colonne */
+/* ───── desktop ───── */
+@media (min-width:900px){
+  :root{--hdr:68px;--nav:0px}
+  body{padding-bottom:0;padding-left:232px;font-size:.98rem}
+  .tabs{top:0;bottom:auto;right:auto;width:232px;height:100dvh;flex-direction:column;justify-content:flex-start;gap:4px;padding:92px 14px 14px;border-top:0;border-right:1px solid var(--line);background:var(--surface)}
+  .tabs a{flex:none;flex-direction:row;justify-content:flex-start;gap:14px;padding:0 16px;height:50px;font-size:.92rem;border-radius:16px}
+  .tabs a.plan .ic-wrap{width:auto;height:auto;margin:0;background:none;color:inherit;box-shadow:none;border:0;display:contents}
+  .top{margin-left:-232px;padding-left:20px;padding-right:28px;z-index:60;background:transparent;border:0;backdrop-filter:none}
+  .top{pointer-events:none}.top>*{pointer-events:auto}
+  main{padding:8px 32px 48px}
+  .hero{margin:0;border-radius:36px;min-height:440px}
+  .hero h1{font-size:4rem}
+  .hero-in{padding:40px}
+  .rail{margin:0;padding-left:0;padding-right:0}
+  .chips.scroll,.datechips{margin:0;padding-left:0}
+  .mapwrap{height:calc(100dvh - 8px)}
+  main.bleed{padding:0}
+  .map-top{left:44px;top:84px;right:84px}
+  .map-bot{left:44px;margin:0}
+  .sheet{align-items:center}.sheet-card{border-radius:30px;max-height:88dvh}
+  .toast{bottom:28px}
+  .cta-bar{bottom:20px}
+  .bento{grid-template-columns:repeat(4,1fr)}.bento .bt.wide{grid-column:span 2}
+  .live{max-width:760px}
+  .split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:24px;align-items:start}
+  .split .sticky{position:sticky;top:84px}
+}
+@media (max-width:899px){.top .brand b{font-size:1rem}.top{padding:0 12px}.brand .mark{width:32px;height:32px}.brand .mark svg{width:32px;height:32px}}

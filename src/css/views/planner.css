@@ -1,0 +1,26 @@
+/* AI Planner: risultato e linea del tempo */
+/* ───── planner risultato ───── */
+.plan-top{border-radius:28px;overflow:hidden;position:relative;color:#FFF8EC;margin-bottom:14px;box-shadow:var(--sh2)}
+.plan-top .art{position:absolute;inset:0;height:100%}
+.plan-top:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,8,3,.12),rgba(15,8,3,.86))}
+.plan-top .in{position:relative;z-index:2;padding:96px 18px 16px}
+.plan-top h2{font-size:1.5rem;margin:4px 0 2px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.25)}
+.stats b{font-family:var(--display);font-size:1.4rem;display:block;line-height:1}
+.stats span{font-size:.66rem;opacity:.85;line-height:1.2;display:block;margin-top:3px}
+.tl{list-style:none;margin:16px 0 0;padding:0}
+.tl>li{position:relative;padding:0 0 0 46px}
+.tl>li:before{content:"";position:absolute;left:17px;top:64px;bottom:-14px;width:2px;background:repeating-linear-gradient(var(--line) 0 5px,transparent 5px 9px)}
+.tl>li:last-child:before{display:none}
+.tl .nd{position:absolute;left:0;top:26px;width:36px;height:36px;border-radius:50%;background:var(--surface);border:2px solid var(--brand);color:var(--brand);display:grid;place-items:center;font-family:var(--display);font-weight:700}
+.tl .nd.done{background:var(--low);border-color:var(--low);color:#fff}.tl .nd.meal{border-color:var(--gold);color:var(--gold)}
+.tl .tr{font-size:.74rem;color:var(--muted);padding:2px 0 8px;display:flex;gap:6px;align-items:center;min-height:20px}
+.stop{display:flex;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:12px;margin-bottom:6px;box-shadow:var(--sh1);flex-wrap:wrap}
+.stop.flag{border-color:color-mix(in srgb,var(--high) 55%,var(--line))}.stop.done{opacity:.6}
+.stop .th{width:72px;height:72px;border-radius:16px;overflow:hidden;flex:none}
+.stop .bd{flex:1;min-width:0}
+.stop h3{font-size:1rem;margin-bottom:2px}
+.stop .fl{width:100%;display:flex;flex-direction:column;gap:6px}
+.fl-i{display:flex;gap:8px;align-items:flex-start;font-size:.78rem;padding:7px 10px;border-radius:12px;background:var(--surface2)}
+.fl-i.closed,.fl-i.crowd{background:color-mix(in srgb,var(--high) 11%,var(--surface))}.fl-i.closed .ic,.fl-i.crowd .ic{color:var(--high)}
+.stop .acts{width:100%;display:flex;gap:6px;flex-wrap:wrap}

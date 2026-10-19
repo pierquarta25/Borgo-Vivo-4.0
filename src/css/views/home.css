@@ -1,0 +1,28 @@
+/* Home: hero, ricerca, card "Adesso" */
+/* ───── hero home ───── */
+.hero{position:relative;min-height:392px;color:#FFF8EC;overflow:hidden;border-radius:0 0 34px 34px;display:flex;align-items:flex-end;margin:-18px -16px 0}
+.hero .art{position:absolute;inset:0;height:100%}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,6,.1) 0%,rgba(20,12,6,.08) 38%,rgba(20,12,6,.72) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;max-width:1040px;margin:0 auto;padding:24px 20px 28px}
+.hero .eyebrow{opacity:.9;display:flex;align-items:center;gap:6px}
+.hero h1{font-size:3rem;margin:6px 0 6px;font-weight:620;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero p{max-width:30em;opacity:.95;margin:0 0 16px}
+.hs{position:relative}
+.hs input[type=search]{width:100%;height:52px;border-radius:999px;border:0;padding:0 18px 0 48px;background:rgba(255,253,248,.96);color:#211B16;box-shadow:0 8px 28px rgba(0,0,0,.25);font-size:.95rem}
+.hs input[type=search]::placeholder{color:#8a7a68}
+.hs .ic{position:absolute;left:17px;top:16px;color:#8a7a68}
+.results{position:absolute;left:0;right:0;top:58px;z-index:5;background:var(--surface);color:var(--ink);border-radius:20px;box-shadow:var(--sh2);padding:6px;max-height:55vh;overflow:auto}
+.results:empty{display:none}
+.res{display:flex;gap:12px;align-items:center;width:100%;padding:8px;border:0;background:none;border-radius:14px;text-align:left}
+.res:hover,.res:focus-visible{background:var(--surface2)}
+.res .th{width:44px;height:44px;border-radius:12px;overflow:hidden;flex:none}
+.res b{display:block;font-weight:600;font-size:.9rem}
+
+.live{display:flex;gap:16px;align-items:center;margin:-30px 4px 0;position:relative;z-index:3;padding:16px 18px;border-radius:26px;box-shadow:var(--sh2)}
+.gauge{position:relative;width:78px;height:78px;flex:none}
+.gauge svg{transform:rotate(-90deg)}
+.gauge b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:1.35rem;font-weight:650}
+.live h3{font-size:1.1rem;margin-bottom:2px}
+.times{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.times button{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;font-size:.74rem;font-weight:600;padding:5px 11px;color:var(--ink2)}
+.times button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
