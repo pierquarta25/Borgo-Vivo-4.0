@@ -28,6 +28,7 @@ const Eng = (() => {
   }
   function hoursLabel(p, date) {
     if (p.closed) return 'Temporaneamente chiuso';
+    if (p.hoursUnknown) return 'Orari non verificati: contatta il gestore';
     const w = windows(p, date);
     if (!w.length) return 'Chiuso oggi';
     if (w.length === 1 && w[0][0] === 0 && w[0][1] === 1440) return 'Sempre accessibile (spazio pubblico)';
@@ -35,6 +36,20 @@ const Eng = (() => {
   }
 
   /* ---------- affluenza (simulata, deterministica) ---------- */
+  /* Stagionalità da dati UFFICIALI (APT Basilicata, Regione Puglia): presenze del mese rispetto al mese di punta,
+     media degli ultimi tre anni disponibili. Il profilo orario e quello settimanale restano ipotesi del modello. */
+  const seasonCache = {};
+  function seasonFactor(dest, date) {
+    if (!seasonCache[dest]) {
+      const st = typeof OFFICIAL_STATS !== 'undefined' && OFFICIAL_STATS[dest];
+      if (!st) return 0.8;
+      const ys = Object.keys(st.years).sort().slice(-3), avg = Array(12).fill(0);
+      ys.forEach(y => st.years[y].monthsPres.forEach((v, i) => { avg[i] += v / ys.length; }));
+      const mx = Math.max(...avg);
+      seasonCache[dest] = avg.map(v => v / mx);
+    }
+    return seasonCache[dest][date.getMonth()];
+  }
   const g = (h, c, s) => Math.exp(-((h - c) ** 2) / (2 * s * s));
   function crowd(p, date, min) {
     if (p.closed) return 0;
@@ -45,7 +60,7 @@ const Eng = (() => {
     const wd = date.getDay();
     const dayF = wd === 0 || wd === 6 ? 1.22 : wd === 5 ? 1.1 : 1;
     const noise = (hash(p.id + dateKey(date) + Math.floor(h)) - 0.5) * 14;
-    return Math.round(clamp(p.pop * curve * dayF * 0.86 + noise, 0, 100));
+    return Math.round(clamp(p.pop * curve * dayF * 0.95 * seasonFactor(p.dest, date) + noise, 0, 100));
   }
   const level = v => v < 35 ? 'low' : v < 62 ? 'mid' : 'high';
   const levelLabel = { low: 'Poco affollato', mid: 'Affluenza media', high: 'Molto affollato' };
@@ -77,11 +92,11 @@ const Eng = (() => {
     if ((acc.has('wheel') || acc.has('stroller')) && p.access === 'partial') return 'Accessibilità parziale: ' + (p.accNote || 'da verificare') ;
     return null;
   }
-  const accLabel = { full: 'Accessibile', partial: 'Parzialmente accessibile', none: 'Non accessibile' };
+  const accLabel = { full: 'Accessibile', partial: 'Parzialmente accessibile', none: 'Non accessibile', unknown: 'Accessibilità non indicata' };
 
   /* ---------- spostamenti ---------- */
   function travelMin(a, b, mode, acc, aDest, bDest) {
-    if (aDest && bDest && aDest !== bDest) return TRANSFER_MIN + 10;
+    if (aDest && bDest && aDest !== bDest) return transferMin(aDest, bDest) + 10;
     const km = hav(a, b) * 1.3;
     const speed = acc && acc.has('wheel') ? 3.3 : acc && acc.has('low') ? 3.4 : 4.5;
     const walk = km / speed * 60;
@@ -155,6 +170,7 @@ const Eng = (() => {
     if (aw) flags.push({ type: 'acc', text: aw });
     if (ctx.acc && ctx.acc.size && !accOK(p, ctx.acc)) flags.push({ type: 'acc', text: 'Non adatto alle esigenze indicate' });
     if (p.booking) flags.push({ type: 'book', text: 'Serve prenotazione' });
+    if (p.hoursUnknown) flags.push({ type: 'book', text: 'Orari non verificati: contatta il gestore' });
     return { flags, crowd: v };
   }
 
@@ -179,7 +195,7 @@ const Eng = (() => {
       const km = hav(poi.ll, c.ll);
       let s = overlap * 10 + (c.less ? 6 : 0) + (here - cv) / 4 - km * (sameDest ? 2 : 0.15) - (sameDest ? 0 : 14);
       if (ctx.reason === 'rain') s += indoor(c) ? 10 : -15;
-      out.push({ poi: c, score: s, crowd: cv, sameDest, km, travel: sameDest ? travelMin(poi.ll, c.ll, ctx.mode, ctx.acc) : TRANSFER_MIN });
+      out.push({ poi: c, score: s, crowd: cv, sameDest, km, travel: sameDest ? travelMin(poi.ll, c.ll, ctx.mode, ctx.acc) : transferMin(poi.dest, c.dest) });
     }
     out.sort((a, b) => b.score - a.score);
     const same = out.filter(x => x.sameDest).slice(0, 2), far = out.filter(x => !x.sameDest).slice(0, 1);
@@ -200,5 +216,5 @@ const Eng = (() => {
   }
 
   return { byId, fmt, pad, dateKey, dayNames, hav, windows, isOpen, hoursLabel, crowd, level, levelLabel, cityCrowd, bestWindow,
-           accOK, accWarn, accLabel, travelMin, travelKind, plan, assess, alternatives, redistribute, indoor, clamp, hash };
+           accOK, accWarn, accLabel, seasonFactor, travelMin, travelKind, plan, assess, alternatives, redistribute, indoor, clamp, hash };
 })();

@@ -31,4 +31,5 @@ Nella scritta il testo non è convertito in tracciati: per la stampa farlo in un
 
 ## Linee guida seguite (turismo)
 Decidere in 5 secondi · prima il pratico, poi la storia · meno folla · il viaggio come giornata · prenotare in pochi tocchi · lingua e accessibilità sempre a portata · pulsanti ≥ 44 px · contrasti alti per leggere al sole.
+La Home è neutra (tre città, nessuna preselezionata); la pagina città ha foto, statistiche e percorsi.
 Le schermate-proposta sono nella tela di design "Borgo Vivo 4.0 – interfaccia turistica" (Claude, link privato).

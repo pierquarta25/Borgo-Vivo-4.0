@@ -3,7 +3,7 @@ const { byId, fmt, pad, dateKey, dayNames } = Eng;
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const KEY = 'borgovivo40b';
+const KEY = 'borgovivo40c';
 const MONTHS = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
 const DOW = ['dom', 'lun', 'mar', 'mer', 'gio', 'ven', 'sab'];
 
@@ -39,14 +39,16 @@ const ACCESS_OPTS = [
   { id: 'wheel', label: 'Carrozzina', icon: 'wheel' }, { id: 'low', label: 'Mobilità ridotta', icon: 'walk' },
   { id: 'stroller', label: 'Passeggino', icon: 'stroller' }, { id: 'vision', label: 'Ipovisione', icon: 'eye' }, { id: 'hearing', label: 'Udito', icon: 'ear' }
 ];
-const EYEBROW = { matera: 'Basilicata · Patrimonio UNESCO', gravina: 'Puglia · Alta Murgia' };
+const EYEBROW = { matera: 'Basilicata · Patrimonio UNESCO', gravina: 'Puglia · Alta Murgia', altamura: 'Puglia · Alta Murgia' };
 const PRESETS = [
   { id: 'pr1', cover: 'm_pas', dest: 'matera', name: 'Matera classica', sub: 'Una giornata', tag: 'Sassi e monumenti', kind: 'cultura', start: 9 * 60 + 30, stops: ['m_vv', 'm_pal', 'm_spb', 'm_cat', 'm_sed', 'm_cg', 'm_idr', 'm_sl', 'm_pas'] },
   { id: 'pr2', cover: 'm_tim', dest: 'matera', name: 'Matera prima dei Sassi', sub: 'Mezza giornata', tag: 'Archeologia e natura', kind: 'natura', start: 9 * 60, stops: ['m_jaz', 'm_tim', 'm_falc', 'm_belt'] },
   { id: 'pr3', cover: 'm_lam', dest: 'matera', name: 'La Matera del Novecento', sub: '3–4 ore', tag: 'Architettura e storia sociale', kind: 'novecento', start: 9 * 60 + 30, stops: ['m_lan', 'm_sv', 'm_lam'] },
   { id: 'pr4', cover: 'm_lanf', dest: 'matera', name: 'Tra arte e nuove visioni', sub: '3–4 ore', tag: 'Musei, anche con maltempo', kind: 'arte', start: 10 * 60, stops: ['m_lanf', 'm_sr', 'm_musma'] },
   { id: 'pr5', cover: 'm_cripta', dest: 'matera', name: 'La Matera rupestre nascosta', sub: '2–3 ore', tag: 'Serve l’auto · prenotazione', kind: 'rupestre', start: 10 * 60 + 30, stops: ['m_cripta'] },
-  { id: 'pr6', cover: 'g_pon', dest: 'gravina', name: 'Città d’acqua e di pietra', sub: 'Una giornata', tag: 'Storia, fede e paesaggio', kind: 'panorama', start: 9 * 60 + 30, stops: ['g_sca', 'g_pur', 'g_cat', 'g_fin', 'g_cola', 'g_piag', 'g_cal', 'g_sant', 'g_pon'] }
+  { id: 'pr6', cover: 'g_pon', dest: 'gravina', name: 'Città d’acqua e di pietra', sub: 'Una giornata', tag: 'Storia, fede e paesaggio', kind: 'panorama', start: 9 * 60 + 30, stops: ['g_sca', 'g_pur', 'g_cat', 'g_fin', 'g_cola', 'g_piag', 'g_cal', 'g_sant', 'g_pon'] },
+  { id: 'pr7', cover: 'a_duomo', dest: 'altamura', name: 'Pietra, racconto e gusto', sub: 'Una giornata', tag: 'Cattedrale, claustri e Pane DOP', kind: 'cultura', start: 9 * 60 + 30, stops: ['a_duomo', 'a_corso', 'a_claustri', 'a_nicola', 'a_porta', 'a_domenico', 'a_forno'] },
+  { id: 'pr8', cover: 'a_lamalunga', dest: 'altamura', name: 'Altamura preistorica', sub: 'Mezza giornata', tag: 'Museo, Lamalunga e Pulo · serve l’auto', kind: 'natura', start: 9 * 60 + 30, stops: ['a_mana', 'a_lamalunga', 'a_pulo'] }
 ];
 const CROWD_LBL = { low: 'Tranquillo', mid: 'Movimentato', high: 'Molto affollato' };
 const COL = { low: '#4C8A3A', mid: '#C98A14', high: '#BF3A2B' };

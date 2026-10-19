@@ -29,7 +29,12 @@ document.addEventListener('change', e => {
     const again = document.getElementById(id); if (again) again.focus();
   }
 });
-document.addEventListener('change', e => { if (e.target.id === 'destSel') { S.dest = e.target.value; save(); render(); toast('Destinazione: ' + dest().name); } });
+document.addEventListener('change', e => {
+  if (e.target.id !== 'destSel' || e.target.value === 'all') return;
+  S.dest = e.target.value; save();
+  if (route() === 'home') { location.hash = '#/city'; goTop(); } else render();
+  toast('Città: ' + dest().name);
+});
 
 document.addEventListener('submit', e => {
   e.preventDefault();
@@ -39,13 +44,10 @@ document.addEventListener('submit', e => {
     S.hearts.push({ id: 'u' + Date.now(), dest: S.dest, by: $('#hBy').value.trim(), place: $('#hPlace').value, note: $('#hNote').value.trim(), mine: true }); save(); render(); toast('Grazie! Il tuo luogo del cuore è stato salvato.');
   }
   if (f.id === 'bookForm') {
-    const o = OPERATORS.find(x => x.id === f.dataset.op), date = $('#bDate').value, slot = (f.querySelector('input[name=slot]:checked') || {}).value, n = +$('#bN').value;
-    if (!slot) { toast('Scegli un orario disponibile'); return; }
-    if (n > seatsLeft(o, date, slot)) { toast('Posti insufficienti: ne restano ' + seatsLeft(o, date, slot)); return; }
+    const o = OPERATORS.find(x => x.id === f.dataset.op), date = $('#bDate').value, part = $('#bPart').value, n = +$('#bN').value;
     const dt = new Date(date + 'T00:00:00');
-    const b = { op: o.id, date, slot, n, name: $('#bName').value.trim(), mail: $('#bMail').value.trim(), note: $('#bNote').value.trim(), code: 'BV-' + Math.random().toString(36).slice(2, 7).toUpperCase(), label: `${dayNames[dt.getDay()]} ${dt.getDate()} ${MONTHS[dt.getMonth()]}` };
-    S.bookings.push(b); save();
-    openSheet(`<div class="sh-pad pt" style="text-align:center"><div class="pill low" style="padding:14px;border-radius:50%;margin:10px auto">${ic('check', 40)}</div><h2 id="sheetTitle">Prenotazione confermata</h2><p>${esc(o.name)}<br><b>${esc(b.label)} alle ${slot}</b> · ${n} ${n > 1 ? 'persone' : 'persona'}</p><div class="card" style="display:inline-block;padding:10px 24px"><span class="small muted">Codice</span><br><b style="font-family:var(--display);font-size:1.5rem;letter-spacing:.08em">${b.code}</b></div><p class="small muted">Da pagare all’operatore: €${o.price * n}. Nel prototipo non viene inviata alcuna email: la prenotazione è salvata su questo dispositivo.</p><a class="btn block" href="#/trips" data-action="closeSheet">Vedi le mie prenotazioni</a></div>`);
+    S.bookings.push({ op: o.id, date, part, n, note: $('#bNote').value.trim(), label: `${dayNames[dt.getDay()]} ${dt.getDate()} ${MONTHS[dt.getMonth()]}` }); save();
+    openSheet(`<div class="sh-pad pt" style="text-align:center"><div class="pill" style="padding:14px;border-radius:50%;margin:10px auto">${ic('check', 40)}</div><h2 id="sheetTitle">Richiesta salvata</h2><p>${esc(o.name)}<br><b>${dayNames[dt.getDay()]} ${dt.getDate()} ${MONTHS[dt.getMonth()]} · ${esc(part)}</b> · ${n} ${n > 1 ? 'persone' : 'persona'}</p><p class="small muted">È solo una richiesta di prova, salvata su questo dispositivo: non è stata inviata all’operatore. Per prenotare davvero usa il suo sito ufficiale.</p><a class="btn block" href="${esc(o.url)}" target="_blank" rel="noopener">Vai al sito ufficiale</a><a class="btn ghost block" href="#/trips" data-action="closeSheet" style="margin-top:8px">Vedi le mie richieste</a></div>`);
   }
 });
 
@@ -56,6 +58,6 @@ function searchRender(q) {
   const row = (act, id, art, t, sub) => `<button class="res" data-action="${act}" data-id="${id}"><div class="th">${art}</div><div><b>${esc(t)}</b><span class="small muted">${esc(sub)}</span></div></button>`;
   const p = POIS.filter(x => hit(x.name + ' ' + x.desc)).slice(0, 5).map(x => row('poi', x.id, thumb(x), x.name, DESTINATIONS[x.dest].name));
   const s = STORIES.filter(x => hit(x.title + ' ' + x.text)).slice(0, 3).map(x => row('story', x.id, thumb(byId(x.place)), x.title, 'Racconto'));
-  const o = OPERATORS.filter(x => hit(x.name + ' ' + x.op + ' ' + x.desc)).slice(0, 3).map(x => row('op', x.id, pic(x.id, x.name, Art.art(OPART[x.type], x.id)), x.name, 'Esperienza · ' + x.op));
+  const o = OPERATORS.filter(x => hit(x.name + ' ' + x.op + ' ' + x.desc)).slice(0, 3).map(x => row('op', x.id, opPic(x), x.name, 'Esperienza · ' + x.op));
   box.innerHTML = [...p, ...s, ...o].join('') || '<p class="empty" style="padding:14px">Nessun risultato.</p>';
 }

@@ -60,7 +60,7 @@ function planHtml() {
     const a = Eng.assess(it, { date, acc });
     const crit = a.flags.filter(f => f.type === 'closed' || f.type === 'crowd');
     if (it.status === 'todo' && crit.length) issues++;
-    if (it.meal) return `<li><div class="nd meal">${ic('utensils', 17)}</div><div class="stop"><div class="bd"><h3>Pausa gastronomica lucana</h3><div class="small muted">${fmt(it.arrive)}–${fmt(it.depart)} · pane di Matera, crapiata, peperoni cruschi, cialledda</div><div class="small muted">Indicativa: non è la prenotazione di un ristorante.</div></div><div class="acts"><button class="btn sm ghost" data-action="rmStop" data-i="${idx}">Rimuovi</button><a class="btn sm ghost" href="#/market">Trova un’esperienza</a></div></div></li>`;
+    if (it.meal) return `<li><div class="nd meal">${ic('utensils', 17)}</div><div class="stop"><div class="bd"><h3>${esc(DESTINATIONS[pl.dest].meal.title)}</h3><div class="small muted">${fmt(it.arrive)}–${fmt(it.depart)} · ${esc(DESTINATIONS[pl.dest].meal.text)}</div><div class="small muted">Indicativa: non è la prenotazione di un ristorante.</div></div><div class="acts"><button class="btn sm ghost" data-action="rmStop" data-i="${idx}">Rimuovi</button><a class="btn sm ghost" href="#/market">Trova un’esperienza</a></div></div></li>`;
     const p = byId(it.id), st = it.status; n++;
     const prev = idx ? byId(items[idx - 1].id) : null;
     const from = prev ? prev.ll : dest().start.ll;
@@ -68,7 +68,7 @@ function planHtml() {
     return `<li>${tr}<div class="nd ${st === 'done' ? 'done' : ''}">${st === 'done' ? ic('check', 18) : n}</div>
       <div class="stop ${st === 'done' ? 'done' : ''} ${crit.length && st === 'todo' ? 'flag' : ''}">
         <div class="th">${thumb(p)}</div>
-        <div class="bd"><h3>${esc(p.name)}</h3><div class="small muted">${fmt(it.arrive)}–${fmt(it.depart)} · ${p.price ? '€' + p.price : 'gratuito'}</div><div style="margin-top:6px">${a.crowd != null ? crowdPill(a.crowd) : ''}</div></div>
+        <div class="bd"><h3>${esc(p.name)}</h3><div class="small muted">${fmt(it.arrive)}–${fmt(it.depart)} · ${p.price === null ? 'prezzo da verificare' : p.price ? '€' + p.price : 'gratuito'}</div><div style="margin-top:6px">${a.crowd != null ? crowdPill(a.crowd) : ''}</div></div>
         ${a.flags.length && st === 'todo' ? `<div class="fl">${a.flags.map(f => `<div class="fl-i ${f.type}">${ic({ closed: 'ban', crowd: 'users', acc: 'access', book: 'ticket' }[f.type], 16)}<span>${esc(f.text)}</span></div>`).join('')}</div>` : ''}
         <div class="acts"><button class="btn sm ${crit.length && st === 'todo' ? '' : 'soft'}" data-action="planB" data-i="${idx}">${ic('swap', 15)} Piano B</button><button class="btn sm ghost" data-action="done" data-i="${idx}">${st === 'done' ? 'Annulla' : ic('check', 15) + ' Fatto'}</button><button class="btn sm ghost" data-action="poi" data-id="${p.id}">Dettagli</button><button class="btn sm ghost" data-action="rmStop" data-i="${idx}" aria-label="Rimuovi tappa">${ic('trash', 15)}</button></div>
       </div></li>`;

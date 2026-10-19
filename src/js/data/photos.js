@@ -232,41 +232,6 @@ const PHOTOS = {
   "page": "https://commons.wikimedia.org/wiki/File:Parco_Archeologico_di_Botromagno_-_Gravina.jpg",
   "title": "Parco Archeologico di Botromagno - Gravina.jpg"
  },
- "o1": {
-  "file": "o1.jpg",
-  "author": "Kars Alfrink",
-  "lic": "CC BY 2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Pane_di_Matera.jpg",
-  "title": "Pane di Matera.jpg"
- },
- "o2": {
-  "file": "o2.jpg",
-  "author": "Francesco Bini",
-  "lic": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Basilicata,_modello_del_carro_della_madonna_della_bruna,_da_matera_01.jpg",
-  "title": "Basilicata, modello del carro della madonna della bruna, da matera 01.jpg"
- },
- "o3": {
-  "file": "o3.jpg",
-  "author": "Superchilum",
-  "lic": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Parco_della_Murgia_Materana_15.jpg",
-  "title": "Parco della Murgia Materana 15.jpg"
- },
- "o7": {
-  "file": "o7.jpg",
-  "author": "Generale Lee",
-  "lic": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Pasta_peperoni_cruschi.jpg",
-  "title": "Pasta peperoni cruschi.jpg"
- },
- "o10": {
-  "file": "o10.jpg",
-  "author": "Antucco at Italian Wikipedia",
-  "lic": "CC BY-SA 3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Pallone_di_Gravina.jpg",
-  "title": "Pallone di Gravina.jpg"
- },
  "o12": {
   "file": "o12.jpg",
   "author": "Flyrainbow50",
@@ -274,53 +239,172 @@ const PHOTOS = {
   "page": "https://commons.wikimedia.org/wiki/File:Grotte_Rupestre_7_case.jpg",
   "title": "Grotte Rupestre 7 case.jpg"
  },
- "o4": {
-  "file": "m_lam.jpg",
-  "author": "Alessandro Dragone",
-  "lic": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Interno_Chiesa_L.Quaroni_La_Martella_Matera.jpg",
-  "title": "Interno Chiesa L.Quaroni La Martella Matera.jpg"
- },
- "o5": {
-  "file": "hero_matera.jpg",
-  "author": "Benjamin Smith",
-  "lic": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Matera_-_Sasso_Barisano_at_blue_hour.jpg",
-  "title": "Matera - Sasso Barisano at blue hour.jpg"
- },
- "o8": {
-  "file": "m_cripta.jpg",
-  "author": "Pietro & Silvia",
-  "lic": "CC BY 2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Cripta_del_Peccato_Originale_%E2%80%93_ingresso.jpg",
-  "title": "Cripta del Peccato Originale – ingresso.jpg"
- },
- "o9": {
-  "file": "g_cola.jpg",
-  "author": "Davide Mauro",
-  "lic": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Casa_Museo_della_%22Cola_Cola%22_03.jpg",
-  "title": "Casa Museo della \"Cola Cola\" 03.jpg"
- },
- "o11": {
-  "file": "g_cat.jpg",
-  "author": "Asia",
-  "lic": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Cattedrale_(Gravina_in_Puglia)01.jpg",
-  "title": "Cattedrale (Gravina in Puglia)01.jpg"
- },
- "o6": {
-  "file": "m_vv.jpg",
-  "author": "Bernard Gagnon",
-  "lic": "CC BY 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Piazza_Vittorio_Veneto_(Matera).jpg",
-  "title": "Piazza Vittorio Veneto (Matera).jpg"
- },
  "m_ridola": {
   "file": "m_ridola.jpg",
   "author": "Margherita L'Annunziata",
   "lic": "CC BY-SA 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Portone_di_accesso_Museo_archeologico_nazionale_Domenico_Ridola_Matera.jpg",
   "title": "Portone di accesso Museo archeologico nazionale Domenico Ridola Matera.jpg"
+ },
+ "a_duomo": {
+  "file": "a_duomo.jpg",
+  "author": "Untalented Guy",
+  "lic": "CC BY 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Cattedrale_di_Altamura_(2017).jpg",
+  "title": "Cattedrale di Altamura (2017).jpg"
+ },
+ "a_claustri": {
+  "file": "a_claustri.jpg",
+  "author": "Ilfinocchiodoro",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Claustro_Giudecca_(Altamura).jpg",
+  "title": "Claustro Giudecca (Altamura).jpg"
+ },
+ "a_nicola": {
+  "file": "a_nicola.jpg",
+  "author": "Giacomo Resta",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Altamura_-_Chiesa_di_San_Nicola_dei_Greci_-_2023-09-27_22-02-27_001.jpeg",
+  "title": "Altamura - Chiesa di San Nicola dei Greci - 2023-09-27 22-02-27 001.jpeg"
+ },
+ "a_porta": {
+  "file": "a_porta.jpg",
+  "author": "Sailko",
+  "lic": "CC BY 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Altamura,_porta_bari_01.jpg",
+  "title": "Altamura, porta bari 01.jpg"
+ },
+ "a_domenico": {
+  "file": "a_domenico.jpg",
+  "author": "Nicola.rifino",
+  "lic": "Public domain",
+  "page": "https://commons.wikimedia.org/wiki/File:Chiesa_di_san_domenico.JPG",
+  "title": "Chiesa di san domenico.JPG"
+ },
+ "a_mana": {
+  "file": "a_mana.jpg",
+  "author": "Sailko",
+  "lic": "CC BY 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Altamura,_museo_archeologico_nazionale.jpg",
+  "title": "Altamura, museo archeologico nazionale.jpg"
+ },
+ "a_baldassarre": {
+  "file": "a_baldassarre.jpg",
+  "author": "Costantino Buzi, Marco Boggioni, Andrea Borsato, Giovanni Boschian, Damiano Marchi, Jacopo Moggi-Cecchi, Antonio Profico, Alessandro Riga, Marco Samadelli, Giorgio Manzi",
+  "lic": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Grotta_di_Lamalunga_Altamura_Man_2b.jpg",
+  "title": "Grotta di Lamalunga Altamura Man 2b.jpg"
+ },
+ "a_lamalunga": {
+  "file": "a_lamalunga.jpg",
+  "author": "Davide Mauro",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Centro_Visite_Lamalunga_IMG_1857_02.jpg",
+  "title": "Centro Visite Lamalunga IMG 1857 02.jpg"
+ },
+ "a_pulo": {
+  "file": "a_pulo.jpg",
+  "author": "Davide Mauro",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Pulo_di_Altamura_02.jpg",
+  "title": "Pulo di Altamura 02.jpg"
+ },
+ "a_dino": {
+  "file": "a_dino.jpg",
+  "author": "Thilo Parg",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Dinosaur_Quarry_of_Altamura_4.jpg",
+  "title": "Dinosaur Quarry of Altamura 4.jpg"
+ },
+ "a_mura": {
+  "file": "a_mura.jpg",
+  "author": "Davide Mauro",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Mura_megalitiche_di_Altamura_01.jpg",
+  "title": "Mura megalitiche di Altamura 01.jpg"
+ },
+ "a_buon": {
+  "file": "a_buon.jpg",
+  "author": "dott. ing. Fabrizio Berloco",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Sanctuary_of_Maria_Santissima_del_Buoncammino.jpg",
+  "title": "Sanctuary of Maria Santissima del Buoncammino.jpg"
+ },
+ "a_forno": {
+  "file": "a_forno.jpg",
+  "author": "Francesco Paolo Fumarola",
+  "lic": "CC BY-SA 2.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Forno_a_legna_(Altamura).jpg",
+  "title": "Forno a legna (Altamura).jpg"
+ },
+ "hero_altamura": {
+  "file": "hero_altamura.jpg",
+  "author": "Luistxo",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Piazza_Altamura_Duomo_02.jpg",
+  "title": "Piazza Altamura Duomo 02.jpg"
+ },
+ "oa_pane": {
+  "file": "oa_pane.jpg",
+  "author": "Nikotota",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Pane-di-altamura-dop-official.jpg",
+  "title": "Pane-di-altamura-dop-official.jpg"
+ },
+ "oa_cheese": {
+  "file": "oa_cheese.jpg",
+  "author": "Popo le Chien",
+  "lic": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:Burrata2.jpg",
+  "title": "Burrata2.jpg"
+ },
+ "oa_pasta": {
+  "file": "oa_pasta.jpg",
+  "author": "Giuseppe Nigro",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Orecchiette_su_tavoliere_in_legno.jpg",
+  "title": "Orecchiette su tavoliere in legno.jpg"
+ },
+ "a_corso": {
+  "file": "a_corso.jpg",
+  "author": "Asia",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Altamura01.jpg",
+  "title": "Altamura01.jpg"
+ },
+ "oa_cheese2": {
+  "file": "oa_cheese.jpg",
+  "author": "Popo le Chien",
+  "lic": "CC0",
+  "page": "https://commons.wikimedia.org/wiki/File:Burrata2.jpg",
+  "title": "Burrata2.jpg"
+ },
+ "oa_pasta2": {
+  "file": "oa_pasta.jpg",
+  "author": "Giuseppe Nigro",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Orecchiette_su_tavoliere_in_legno.jpg",
+  "title": "Orecchiette su tavoliere in legno.jpg"
+ },
+ "oa_pasta3": {
+  "file": "oa_pasta.jpg",
+  "author": "Giuseppe Nigro",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Orecchiette_su_tavoliere_in_legno.jpg",
+  "title": "Orecchiette su tavoliere in legno.jpg"
+ },
+ "oa_pasta4": {
+  "file": "oa_pasta.jpg",
+  "author": "Giuseppe Nigro",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Orecchiette_su_tavoliere_in_legno.jpg",
+  "title": "Orecchiette su tavoliere in legno.jpg"
+ },
+ "oa_pasta5": {
+  "file": "oa_pasta.jpg",
+  "author": "Giuseppe Nigro",
+  "lic": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Orecchiette_su_tavoliere_in_legno.jpg",
+  "title": "Orecchiette su tavoliere in legno.jpg"
  }
 };

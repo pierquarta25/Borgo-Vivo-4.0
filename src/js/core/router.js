@@ -2,20 +2,22 @@
 /* ───────────── router & render ───────────── */
 const TABS = [['home', 'home', 'Home'], ['map', 'map', 'Mappa'], ['planner', 'sparkles', 'Planner'], ['stories', 'book', 'Racconti'], ['market', 'bag', 'Esperienze']];
 const route = () => (location.hash.replace(/^#\/?/, '') || 'home').split('?')[0];
-const TITLES = { home: 'Home', planner: 'AI Planner', map: 'Mappa', stories: 'Racconti', market: 'Esperienze', trips: 'Prenotazioni', mobility: 'Mobilità', access: 'Accessibilità', sources: 'Dati', about: 'Il progetto' };
+const TITLES = { home: 'Home', city: 'Città', planner: 'AI Planner', map: 'Mappa', stories: 'Racconti', market: 'Esperienze', trips: 'Prenotazioni', mobility: 'Mobilità', access: 'Accessibilità', sources: 'Dati', about: 'Il progetto' };
 function chrome() {
-  $('#topR').innerHTML = `<label class="destpick">${ic('pin', 18)}<select id="destSel" aria-label="Destinazione">${Object.values(DESTINATIONS).map(d => `<option value="${d.id}" ${d.id === S.dest ? 'selected' : ''}>${d.name.split(' ')[0]}</option>`).join('')}</select>${ic('right', 16)}</label><button class="round" data-action="menu" aria-label="Menu" aria-haspopup="dialog">${ic('menu', 20)}</button>`;
+  const onHome = route() === 'home';   // sulla Home il selettore è neutro: "Tutte le città"
+  $('#topR').innerHTML = `<label class="destpick">${ic('pin', 18)}<select id="destSel" aria-label="Città">${onHome ? `<option value="all" selected>Tutte</option>` : ''}${Object.values(DESTINATIONS).map(d => `<option value="${d.id}" ${!onHome && d.id === S.dest ? 'selected' : ''}>${d.name.split(' ')[0]}</option>`).join('')}</select>${ic('right', 16)}</label><span class="pill offline-pill" hidden>Offline</span><button class="round" data-action="menu" aria-label="Menu" aria-haspopup="dialog">${ic('menu', 20)}</button>`;
 }
 function render(only) {
   const r = route();
   if (only === 'planOut') { const o = $('#planOut'); if (o) o.innerHTML = S.plan ? planHtml() : ''; return; }
-  $('#tabs').innerHTML = TABS.map(t => `<a href="#/${t[0]}" class="${t[0] === 'planner' ? 'plan' : ''}" ${r === t[0] ? 'aria-current="page"' : ''}>${t[0] === 'planner' ? `<span class="ic-wrap">${ic(t[1], 22)}</span>` : ic(t[1], 22)}<span>${t[2]}</span></a>`).join('');
+  $('#tabs').innerHTML = TABS.map(t => `<a href="#/${t[0]}" class="${t[0] === 'planner' ? 'plan' : ''}" ${r === t[0] || (t[0] === 'home' && r === 'city') ? 'aria-current="page"' : ''}>${t[0] === 'planner' ? `<span class="ic-wrap">${ic(t[1], 22)}</span>` : ic(t[1], 22)}<span>${t[2]}</span></a>`).join('');
   chrome();
   if (map && r !== 'map') { map.remove(); map = null; }
   const v = views[r] || views.home, main = $('#view');
   main.className = r === 'map' ? 'bleed' : '';
   main.innerHTML = v();
   if (r === 'map') initMap();
+  if (typeof netState === 'function') netState();
   document.title = 'Borgo Vivo 4.0 — ' + (TITLES[r] || '');
 }
 function applyDisplay() {

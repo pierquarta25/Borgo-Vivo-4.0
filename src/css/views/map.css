@@ -21,3 +21,7 @@
 :root[data-theme="dark"] .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) sepia(.3) brightness(.85) contrast(.9)}
 .leaflet-container{background:var(--surface2);font-family:var(--sans)}
 .leaflet-control-attribution{font-size:.62rem!important;background:color-mix(in srgb,var(--surface) 80%,transparent)!important}
+
+.map-offline{display:none;position:absolute;left:12px;right:12px;top:64px;z-index:6;max-width:520px;box-shadow:var(--sh2);margin:0}
+body.offline .map-offline{display:flex}
+.offline-pill{background:var(--high);color:#fff;font-weight:700}

@@ -150,3 +150,15 @@ input[type=range]{width:100%;accent-color:var(--brand)}
 .credit{font-size:.62rem;color:#fff;background:rgba(20,12,6,.55);backdrop-filter:blur(6px);padding:3px 9px;border-radius:99px;text-decoration:none;white-space:nowrap;max-width:80%;overflow:hidden;text-overflow:ellipsis;display:inline-block}
 .credit.ch{position:absolute;right:12px;top:12px;z-index:3}
 .credit.inl{background:var(--surface2);color:var(--muted)}
+
+/* Statistiche ufficiali */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 4px}
+.stat-row b{font-family:var(--display);font-size:1.35rem;display:block;line-height:1.1}
+.stat-row span{display:block;font-size:.7rem;color:var(--muted);line-height:1.25;margin-top:2px}
+em.up,em.dn{display:block;font-style:normal;font-weight:700;font-size:.72rem;margin-top:3px}
+em.up{color:var(--low)}em.dn{color:var(--high)}
+.bars.stat div{background:color-mix(in srgb,var(--brand) 45%,transparent)}
+.bars.stat div.now{background:var(--brand);outline:2.5px solid var(--ink);outline-offset:2px}
+/* Richiesta di prova nelle esperienze */
+details.trial{margin-top:14px;border:1.5px dashed var(--line);border-radius:18px;padding:4px 14px 14px}
+details.trial summary{cursor:pointer;font-weight:650;font-size:.88rem;padding:12px 0;color:var(--ink2)}

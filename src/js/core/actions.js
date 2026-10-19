@@ -10,13 +10,14 @@ const A = {
   setNow: a => { S.now = +a.dataset.v; save(); render(); },
   setDate: a => { S.date = a.dataset.v; save(); $$('[data-action=setDate]').forEach(b => b.setAttribute('aria-pressed', String(b === a))); if (S.plan) render('planOut'); },
   switchDest: a => { S.dest = a.dataset.id; save(); closeSheet(); render(); goTop(); toast('Destinazione: ' + dest().name); },
+  openCity: a => { S.dest = a.dataset.id; save(); location.hash = '#/city'; goTop(); },
   togInt: a => { const i = S.prefs.interests, k = a.dataset.id; S.prefs.interests = i.includes(k) ? i.filter(x => x !== k) : [...i, k]; save(); a.setAttribute('aria-pressed', S.prefs.interests.includes(k)); },
   togAcc: a => { const k = a.dataset.id; S.acc = S.acc.includes(k) ? S.acc.filter(x => x !== k) : [...S.acc, k]; save(); a.setAttribute('aria-pressed', S.acc.includes(k)); if (route() === 'access') render(); },
   pref: a => { const k = a.dataset.k; S.prefs[k] = k === 'mode' ? a.dataset.v : Number(a.dataset.v); save(); $$(`[data-action=pref][data-k=${k}]`).forEach(b => b.setAttribute('aria-pressed', String(b === a))); },
   preset: a => {
     const pr = PRESETS.find(x => x.id === a.dataset.id);
     if (S.dest !== pr.dest) { S.dest = pr.dest; }
-    const mode = pr.stops.some(s => ['m_cripta', 'm_lam'].includes(s)) ? 'auto' : S.prefs.mode;
+    const mode = pr.stops.some(s => Eng.hav(DESTINATIONS[pr.dest].start.ll, byId(s).ll) > 3) ? 'auto' : S.prefs.mode;
     const opts = { dest: pr.dest, start: pr.start, mode, pace: 1 };
     const items = pr.stops.map(id => ({ id, status: 'todo', travel: 0, arrive: 0, depart: 0 }));
     if (pr.stops.length >= 7) items.splice(5, 0, { id: 'meal', meal: true, status: 'todo', travel: 0, arrive: 0, depart: 0 });
@@ -61,8 +62,9 @@ const A = {
   },
   storyCat: a => { storyCat = a.dataset.id; render(); },
   opType: a => { opType = a.dataset.id; render(); },
-  bookDate: a => { $$('[data-action=bookDate]').forEach(b => b.setAttribute('aria-pressed', String(b === a))); $('#bDate').value = a.dataset.v; const o = OPERATORS.find(x => x.id === $('#bookForm').dataset.op); $('#slotBox').innerHTML = slotsHtml(o, a.dataset.v); },
-  step: a => { const h = $('#bN'), n = Eng.clamp(+h.value + +a.dataset.d, 1, +h.dataset.max); h.value = n; $('#nLbl').textContent = n; $('#bBtn').textContent = 'Prenota · €' + n * +h.dataset.price; },
+  bookDate: a => { $$('[data-action=bookDate]').forEach(b => b.setAttribute('aria-pressed', String(b === a))); $('#bDate').value = a.dataset.v; },
+  bookPart: a => { $$('[data-action=bookPart]').forEach(b => b.setAttribute('aria-pressed', String(b === a))); $('#bPart').value = a.dataset.v; },
+  step: a => { const h = $('#bN'), n = Eng.clamp(+h.value + +a.dataset.d, 1, +h.dataset.max); h.value = n; $('#nLbl').textContent = n; },
   speak: a => {
     if (!('speechSynthesis' in window)) { toast('Lettura vocale non supportata da questo browser'); return; }
     speechSynthesis.cancel(); const s = STORIES.find(x => x.id === a.dataset.id);

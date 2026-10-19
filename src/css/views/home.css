@@ -26,3 +26,17 @@
 .times{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
 .times button{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;font-size:.74rem;font-weight:600;padding:5px 11px;color:var(--ink2)}
 .times button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* Home neutra: trittico delle tre città */
+.hero.tri .tri-art{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.hero.tri .tri-art .art{position:static;height:100%}
+.hero.tri h1{font-size:2.5rem}
+.hero-back{position:absolute;left:16px;top:16px;z-index:3;display:inline-flex;align-items:center;gap:4px;padding:8px 14px;border-radius:999px;background:rgba(255,248,236,.92);color:#6E2A12;font-weight:650;font-size:.8rem;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.dcity{position:relative;width:280px;height:300px;border-radius:26px;overflow:hidden;color:#FFF8EC;text-align:left;border:0;padding:0;box-shadow:var(--sh2)}
+.dcity .art{position:absolute;inset:0;height:100%}
+.dcity:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,8,3,0) 25%,rgba(15,8,3,.88))}
+.dcity .in{position:absolute;left:18px;right:18px;bottom:18px;z-index:2}
+.dcity h3{font-size:1.5rem;margin:4px 0}
+.dcity p{font-size:.8rem;opacity:.92;margin:0 0 6px;line-height:1.35}
+.dcity .eyebrow{opacity:.85}
+@media (min-width:900px){.hero.tri h1{font-size:3.6rem}.destrail{margin-right:0}.dcity{width:300px}}
